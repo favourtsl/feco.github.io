@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FECO Web3 Dashboard</title>
+
+<style>
+
+body{
+background:#0d1117;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.card{
+background:#161b22;
+margin:20px;
+padding:20px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🚀 FECO Web3 Dashboard</h1>
+
+<div class="card">
+<h2>Bitcoin Price</h2>
+<p id="btc">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Solana Price</h2>
+<p id="sol">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Quick Tools</h2>
+
+<a href="https://jup.ag">Jupiter Swap</a><br><br>
+
+<a href="https://tensor.trade">Tensor NFTs</a><br><br>
+
+<a href="https://magiceden.io">Magic Eden</a>
+
+</div>
+
+<script>
+
+async function prices(){
+
+let res = await fetch(
+"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,solana&vs_currencies=usd"
+);
+
+let data = await res.json();
+
+document.getElementById("btc").innerText="$"+data.bitcoin.usd;
+
+document.getElementById("sol").innerText="$"+data.solana.usd;
+
+}
+
+prices();
+
+</script>
+
+</body>
+</html>
