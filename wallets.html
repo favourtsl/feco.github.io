@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FECO Wallet Tracker</title>
+
+<style>
+
+body{
+background:#0d1117;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.card{
+background:#161b22;
+margin:20px;
+padding:20px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+margin:10px;
+border-radius:6px;
+border:none;
+width:300px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:6px;
+background:#00ffa6;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>💰 FECO Wallet Tracker</h1>
+
+<p>Add your wallets to track them</p>
+
+<input id="wallet" placeholder="Enter Solana wallet address">
+
+<br>
+
+<button onclick="addWallet()">Add Wallet</button>
+
+<div id="walletList"></div>
+
+<script>
+
+function addWallet(){
+
+let wallet = document.getElementById("wallet").value;
+
+let div = document.createElement("div");
+
+div.className="card";
+
+div.innerHTML="Wallet: "+wallet+"<br><br><a href='https://solscan.io/account/"+wallet+"' target='_blank'>View on Solscan</a>";
+
+document.getElementById("walletList").appendChild(div);
+
+}
+
+</script>
+
+</body>
+</html>
